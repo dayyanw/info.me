@@ -1,0 +1,114 @@
+body{
+    background: black;
+    color: white;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+#dayyan{
+    display: block;
+
+    font-family: "press start 2p";
+    text-align: center;
+}
+.container{
+    
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    /* gap: 100px; */
+  
+}
+.luffy
+{
+    width: 110px;
+    height: 110px;
+    position: absolute;
+   
+    animation: myslide;
+    animation-duration: 2.5s ;
+    display: block;
+    margin-left: 48%;
+    margin-top: 19vh;
+    
+}
+@keyframes myslide {
+     from{margin-left: 200%;}
+    /* to{margin-left: 50%;} */
+}
+.dayyan1 {
+    width: 100px; /* Set width correctly */
+    height: 100px; /* Set height correctly */
+    display: flex;
+    margin-top: 206px;
+    margin-left: 49%;
+     /* Add position for animation to work */
+    animation: dayyanSlide 2s  ; /* Add 'forwards' to keep final position */
+}
+
+@keyframes dayyanSlide {
+    from {
+        transform: translateX(-100vh); /* Start off the screen to the right */
+    }
+    to {
+        transform: translateX(0%); /* End at original position */
+    }
+}
+
+
+
+
+
+
+.scroll-arrow {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 40px;
+    color: white;
+    animation: bounce 1s infinite;
+    opacity: 1;   /* Initially visible */
+    transition: opacity 0.3s ease;  /* Smooth transition for fading */
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+    100% { transform: translateY(0); }
+}
+
+#paraGraph{
+    font-size: 20px;
+    font-family: "press start 2p";
+    display: flex
+;
+color: rgb(194, 187, 187);
+}
+#about1{
+    height: 20px;
+    border: 1px solid;
+    padding: 0px;
+    border-radius: 5px;
+  
+
+}
+#about2{
+    height: 20px;
+    border: 1px solid;
+    padding: 0px;
+    border-radius: 5px;
+}
+#about3{
+    height: 20px;
+    border: 1px solid;
+    padding: 0px;
+    border-radius: 5px;
+}
+.about{
+    display: flex;
+    margin-left: 40%;
+    color: rgb(168, 167, 167);
+    font-family: "press start 2p";
+    margin-bottom: 70px;
+}

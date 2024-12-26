@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+    // Page Visibility API for refreshing the page when it becomes visible
+    document.addEventListener('visibilitychange', function() {
+            if (document.visibilityState === 'visible') {
+                location.reload(); // Refresh the page when the tab is focused again
+            }
+        });
+
+        // Scroll arrow hide and show logic
+        window.addEventListener('DOMContentLoaded', function() {
+            let lastScrollTop = 0;
+            const arrow = document.querySelector('.scroll-arrow');
+
+            window.addEventListener('scroll', function() {
+                let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+                // If scrolling down, hide the arrow
+                if (currentScroll > lastScrollTop) {
+                    arrow.style.opacity = '0'; // Hide the arrow
+                } 
+                // If scrolling up, show the arrow
+                else {
+                    arrow.style.opacity = '1'; // Show the arrow
+                }
+
+                // Update the last scroll position
+                lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+            });
+        });
+    </script>
+
+        <link rel="stylesheet" href="dayyan.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <title>Dayyan</title>
+</head>
+<body>
+
+    <div class="container" >
+        
+        <h1 id="dayyan">DAYYAN</h1>
+    <img class="luffy" src="luffy hat 3 bg removed.png" alt="">
+    <img class="dayyan1" src="dayyan potrait .png" alt="">
+
+
+    <div class="scroll-arrow">
+        <i class="fas fa-arrow-down"></i> <!-- Font Awesome Sc  roll Down Icon -->
+    </div>
+
+    </div>
+
+    <h1 class="about">About</h1>
+    <p id="paraGraph"> I am Dayyan a 13 yo web developer who loves studying engineering. I live in India and soon decide to move to USA for my studies and Future Pursuites. <br>
+    <hr>
+        <a target="_blank" href="https://www.youtube.com/@aDayyanWani"><button><img id="about1" src="youtube img.png" alt=""></button></a>
+        <a target="_blank"  href="https://x.com/DayyanWani"><button><img id="about2" src="X image.jpeg" alt=""></button></a>
+        <a target="_blank"  href="https://www.instagram.com/dayyanwani/"><button><img id="about3" src="Emblem-Instagram-removebg-preview.png" alt=""></button></a>
+</body>
+</html>
+
+<!--- current luffy image is vertically long make it shorter 
+        - for better visiblity 
+        - image over lay easier
+    - dayyan image appear with the hat 
+        - dayyn on its own place 
+        - image comes in over his head 
+    -  two sections 
+        1 about secion 
+            -  make the youtube instagram and x buttons oppear on this section
+            - tell them where to contact you 
+        2 timeline section 
+            - it should be a date wise timeline 
+            - with a line next to it 
+            - where the things you do get added 
+    -make the website more cyber punk like 
+-  -->

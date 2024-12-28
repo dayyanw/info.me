@@ -1,75 +1,66 @@
-body{
+/* General Styles */
+body {
     background: black;
     color: white;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    margin: 0;
+    font-family: "Press Start 2P", sans-serif;
 }
-#dayyan{
-    display: block;
 
-    font-family: "press start 2p";
-    text-align: center;
-}
-.container{
-    
+.container {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    flex-direction: column;
-    /* gap: 100px; */
-  
+    text-align: center;
 }
-.luffy
-{
-    width: 110px;
-    height: 110px;
+
+/* Dayyan Title */
+#dayyan {
+    font-size: 4vw;
+    margin-bottom: 20px;
+}
+
+/* Images */
+.luffy {
+    width: 40vh;
+    height: auto;
     position: absolute;
-   
-    animation: myslide;
-    animation-duration: 2.5s ;
-    display: block;
-    margin-left: 48%;
-    margin-top: 19vh;
-    
+    animation: myslide 4s;
+    margin-bottom: 15vh;
+    margin-right: 1vh;
 }
+
 @keyframes myslide {
-     from{margin-left: 200%;}
-    /* to{margin-left: 50%;} */
+    from { margin-left: 200%; }
+    to { margin-left: 0; }
 }
+
 .dayyan1 {
-    width: 100px; /* Set width correctly */
-    height: 100px; /* Set height correctly */
-    display: flex;
-    margin-top: 206px;
-    margin-left: 49%;
-     /* Add position for animation to work */
-    animation: dayyanSlide 2s  ; /* Add 'forwards' to keep final position */
+    width: 40vh;
+    height: auto;
+    margin-top: 20px;
+    animation: dayyanSlide 2s;
 }
 
 @keyframes dayyanSlide {
-    from {
-        transform: translateX(-100vh); /* Start off the screen to the right */
-    }
-    to {
-        transform: translateX(0%); /* End at original position */
-    }
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
 }
 
-
-
-
-
-
+/* Scroll Arrow */
 .scroll-arrow {
     position: absolute;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 40px;
+    font-size: 2rem;
     color: white;
     animation: bounce 1s infinite;
-    opacity: 1;   /* Initially visible */
-    transition: opacity 0.3s ease;  /* Smooth transition for fading */
+    opacity: 1;
+    transition: opacity 0.3s ease;
 }
 
 @keyframes bounce {
@@ -78,37 +69,134 @@ body{
     100% { transform: translateY(0); }
 }
 
-#paraGraph{
-    font-size: 20px;
-    font-family: "press start 2p";
-    display: flex
-;
-color: rgb(194, 187, 187);
-}
-#about1{
-    height: 20px;
-    border: 1px solid;
-    padding: 0px;
-    border-radius: 5px;
-  
-
-}
-#about2{
-    height: 20px;
-    border: 1px solid;
-    padding: 0px;
-    border-radius: 5px;
-}
-#about3{
-    height: 20px;
-    border: 1px solid;
-    padding: 0px;
-    border-radius: 5px;
-}
-.about{
-    display: flex;
-    margin-left: 40%;
+/* About Section */
+.about {
     color: rgb(168, 167, 167);
-    font-family: "press start 2p";
-    margin-bottom: 70px;
+    text-align: center;
+    font-size: 2rem;
+    margin: 40px 0;
+    
 }
+
+    #about1{
+        height: 20px;
+        border: 1px solid;
+        padding: 0px;
+        border-radius: 5px;
+      
+    
+    }
+    #about2{
+        height: 20px;
+        border: 1px solid;
+        padding: 0px;
+        border-radius: 5px;
+    }
+    #about3{
+        height: 20px;
+        border: 1px solid;
+        padding: 0px;
+        border-radius: 5px;}
+#paraGraph {
+    font-size: 1.2rem;
+    color: rgb(194, 187, 187);
+    text-align: center;
+    margin: 0 10%;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.social-links img {
+    width: 30px;
+    height: 30px;
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 100px) {
+    #dayyan {
+        font-size: 6vw;
+    }
+
+    .luffy, .dayyan1 {
+        width: 20vw;
+    }
+
+    #paraGraph {
+        font-size: 1rem;
+    }
+
+    .social-links img {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+/* Notes Section */
+.notes-section {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1a1a1a;
+}
+
+/* Vertical Line */
+.vertical-line {
+    position: absolute;
+    left: 0;
+    width: 2px;
+    height: 80%;
+    background-color: white;
+}
+
+/* Notes Area */
+.notes {
+    width: 90%;
+    height: 90%;
+    background: #2a2a2a;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    resize: none;
+}
+
+.notes:focus {
+    outline: none;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+
+/*  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

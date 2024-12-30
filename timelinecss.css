@@ -1,145 +1,312 @@
-/* Import */
-@import url('https://fonts.googleapis.com/css?family=Chivo:300,300i,400,400i,700,700i,900,900i|Saira+Extra+Condensed:100,200,300,400,500,600,700,800|Saira:100,200,300,400,500,600,700,800');
-
-/* Variables (converted to CSS custom properties) */
 :root {
-  --background: #252827;
-
-  --color-primary: #004ffc;
-  --color-light: white;
-  --color-dim: #6c6d6d;
-  --spacing: 50px;
-  --radius: 4px;
-
-  --date: 120px;
-  --dotborder: 4px;
-  --dot: 11px;
-  --line: 4px;
-
-  --font-title: 'Saira', sans-serif;
-  --font-text: 'Chivo', sans-serif;
+  --primary-color: rgb(20 , 20 , 20);
+  --background-color: rgb(20, 20 , 20 );
+  --font: sans-serif;
 }
 
-/* Base */
-/* body {
-  background: var(--background);
-  font-size: 16px;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-p {
-  font-weight: 300;
+.timelineContainer{
+  display: flex;
+  text-align: center;
+  justify-content: center;
 }
 
-a {
-  color: var(--color-dim);
-  text-decoration: none;
-  text-transform: uppercase;
-  display: block;
-  letter-spacing: 0.3em;
-  font-size: 0.6em;
-  font-weight: 400;
-  background: #252727;
-  padding: 0.3rem 1rem;
-  margin: 1.9rem 0 0 0;
-  float: right;
+/* Timeline Container */
+.timeline {
+  background: var(--primary-color);
+  margin: 20px auto;
+  padding: 20px;
 }
 
-a:hover {
-  color: var(--color-light);
-  background: var(--color-primary);
-  border-bottom: 0.35em solid black;
+/* Card container */
+.card {
+  position: relative;
+  max-width: 400px;
 }
 
-strong {
-  font-weight: 600;
+/* setting padding based on even or odd */
+.card:nth-child(odd) {
+  padding: 30px 0 30px 30px;
+}
+.card:nth-child(even) {
+  padding: 30px 30px 30px 0;
+}
+/* Global ::before */
+.card::before {
+  content: "";
+  position: absolute;
+  width: 50%;
+  border: solid rgb(138, 134, 134);
 }
 
-h1 {
-  font-family: var(--font-title);
-  letter-spacing: 1.5px;
-  color: var(--color-light);
-  font-weight: 400;
-  font-size: 2.4em;
+/* Setting the border of top, bottom, left */
+.card:nth-child(odd)::before {
+  left: 0px;
+  top: -4.5px;
+  bottom: -4.5px;
+  border-width: 5px 0 5px 5px;
+  border-radius: 50px 0 0 50px;
+}
+
+/* Setting the top and bottom to "-5px" because earlier it was out of a pixel in mobile devices */
+@media only screen and (max-width: 400px) {
+  .card:nth-child(odd)::before {
+    top: -5px;
+    bottom: -5px;
+  }
+}
+
+/* Setting the border of top, bottom, right */
+.card:nth-child(even)::before {
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-width: 5px 5px 5px 0;
+  border-radius: 0 50px 50px 0;
+}
+
+/* Removing the border if it is the first card */
+.card:first-child::before {
+  border-top: 0;
+  border-top-left-radius: 0;
+}
+
+/* Removing the border if it is the last card  and it's odd */
+.card:last-child:nth-child(odd)::before {
+  border-bottom: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* Removing the border if it is the last card  and it's even */
+.card:last-child:nth-child(even)::before {
+  border-bottom: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Information about the timeline */
+.info {
+  display: flex;
+  flex-direction: column;
+  background: #333;
+  color: gray;
+  border-radius: 10px;
+  padding: 10px;
+  gap: 1vh;
+  text-align: left;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 3.5vh;
+}
+
+.date{
+  color: white ;
+  font-size: 3vh;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.infoPara{
+  color: aliceblue;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2.2vh;
+
+}
+
+.infoLink{
+  color: lightblue;
+}
+
+
+/* Title of the card */
+.title {
+  color: rgb(0, 0, 0);
+  position: relative;
+}
+
+.infoHeading{
+  color: rgb(80, 180, 230);
+}
+
+/* Timeline dot  */
+/* .title::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 999px;
+  border: 3px solid rgb(7,66,58);
 } */
 
-#timeline-content {
-  margin-top: var(--spacing);
-  text-align: center;
-}
-
-/* Timeline */
-.timeline {
-  border-left: var(--line) solid var(--color-primary);
-  border-bottom-right-radius: var(--radius);
-  border-top-right-radius: var(--radius);
-  background: rgba(255, 255, 255, 0.03);
-  color: rgba(255, 255, 255, 0.8);
-  font-family: var(--font-text);
-  margin: var(--spacing) auto;
-  letter-spacing: 0.5px;
-  position: relative;
-  line-height: 1.4em;
-  font-size: 1.03em;
-  padding: var(--spacing);
-  list-style: none;
-  text-align: left;
-  font-weight: 100;
-  max-width: 30%;
-}
-
-.timeline h1 {
-  font-family: var(--font-title);
-  letter-spacing: 1.5px;
-  font-weight: 100;
-  font-size: 1.4em;
-}
-
-.timeline h2,
-.timeline h3 {
-  font-family: var(--font-title);
-  letter-spacing: 1.5px;
-  font-weight: 400;
-  font-size: 1.4em;
-}
-
-.timeline .event {
-  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
-  padding-bottom: calc(var(--spacing) * 0.5);
-  margin-bottom: var(--spacing);
-  position: relative;
-}
-
-.timeline .event:last-of-type {
-  padding-bottom: 0;
-  margin-bottom: 0;
-  border: none;
-}
-
-.timeline .event:before,
-.timeline .event:after {
-  position: absolute;
-  display: block;
-  top: 0;
-}
-
-.timeline .event:before {
-  left: calc((((var(--date) * 0.6) + var(--spacing) + var(--line) + var(--dot) + (var(--dotborder) * 2)) * 1.5) * -1);
-  color: rgba(255, 255, 255, 0.4);
-  content: attr(data-date);
+/* text right if the card is even  */
+.card:nth-child(even) > .info > .title {
   text-align: right;
-  font-weight: 100;
-  font-size: 0.9em;
-  min-width: var(--date);
-  font-family: var(--font-title);
 }
 
-.timeline .event:after {
-  box-shadow: 0 0 0 var(--dotborder) var(--color-primary);
-  left: calc((var(--spacing) + var(--line) + (var(--dot) * 0.35)) * -1);
-  background: #2d2d2d;
-  border-radius: 50%;
-  height: var(--dot);
-  width: var(--dot);
-  content: "";
-  top: 5px;
+/* setting dot to the left if the card is odd */
+.card:nth-child(odd) > .info > .title::before {
+  left: -45px;
 }
+
+/* setting dot to the right if the card is odd */
+.card:nth-child(even) > .info > .title::before {
+  right: -45px;
+}
+
+
+
+
+/* OTHER DEVICES */
+
+/* Mobile View (max-width: 768px) */
+@media (max-width: 768px) {
+  /* General */
+  body {
+    font-size: 0.9rem;
+  }
+
+  .container {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  #dayyan {
+    font-size: 4vw;
+    top: 5vh;
+    margin-left: 0; /* Center the title for smaller screens */
+  }
+
+  .dayyan1 {
+    width: 80vw;
+    transform: none; /* Remove rotation for better viewing */
+  }
+
+  .scroll-arrow {
+    font-size: 1.5rem;
+  }
+
+  .aboutContainer {
+    margin: 5vh 2vw;
+    padding: 0;
+  }
+
+  #paraGraph {
+    font-size: 1rem;
+    text-align: center; /* Center align for better readability */
+  }
+
+  .socialLinks {
+    gap: 15px;
+  }
+
+  #about1, #about2, #about3 {
+    width: 25px;
+    height: 25px;
+    padding: 8px;
+  }
+
+  /* Timeline */
+  .timeline {
+    padding: 10px;
+  }
+
+  .card {
+    max-width: 90%;
+    margin: 10px auto;
+  }
+
+  .info {
+    font-size: 1rem;
+  }
+
+  .infoHeading {
+    font-size: 1.5rem;
+  }
+
+  .date {
+    font-size: 1.2rem;
+  }
+
+  .infoPara {
+    font-size: 1rem;
+  }
+
+  /* Adjust ::before for timeline cards */
+  .card:nth-child(odd)::before, .card:nth-child(even)::before {
+    width: 5px; /* Narrow line */
+  }
+}
+
+/* Tablet View (768px to 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  #dayyan {
+    font-size: 3rem;
+  }
+
+  .dayyan1 {
+    width: 70vw;
+  }
+
+  .aboutContainer {
+    margin: 5vh 5vw;
+  }
+
+  #paraGraph {
+    font-size: 1.1rem;
+  }
+
+  .socialLinks {
+    gap: 20px;
+  }
+
+  #about1, #about2, #about3 {
+    width: 28px;
+    height: 28px;
+    padding: 8px;
+  }
+
+  /* Timeline */
+  .timeline {
+    padding: 15px;
+  }
+
+  .card {
+    max-width: 70%;
+    margin: 15px auto;
+  }
+
+  .info {
+    font-size: 1.2rem;
+  }
+
+  .infoHeading {
+    font-size: 1.7rem;
+  }
+
+  .date {
+    font-size: 1.4rem;
+  }
+
+  .infoPara {
+    font-size: 1.1rem;
+  }
+
+  /* Adjust ::before for timeline cards */
+  .card:nth-child(odd)::before, .card:nth-child(even)::before {
+    width: 7px;
+  }
+}
+
+/* Large screens (Desktop) */
+@media (min-width: 1024px) {
+  .timeline {
+    max-width: 80%;
+  }
+
+  .card {
+    max-width: 400px;
+  }
+}
+

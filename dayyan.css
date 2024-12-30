@@ -1,6 +1,6 @@
 /* General Styles */
 body {
-    background: black;
+    background: rgb(20,20,20);
     color: white;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -17,10 +17,21 @@ body {
     text-align: center;
 }
 
+
 /* Dayyan Title */
 #dayyan {
-    font-size: 4vw;
-    margin-bottom: 20px;
+    position: absolute;
+    top: 10vh; /* Adjust spacing from the top */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 6vh;
+    margin: 0; /* Remove unnecessary margins */
+    text-align: center;
+    z-index: 10;
+    padding-top: 3vh;    
+    margin-left: 45vh;
+}/* ;
+
 }
 
 /* Images */
@@ -39,16 +50,18 @@ body {
 }
 
 .dayyan1 {
-    width: 40vh;
-    height: auto;
+    width: 93vh;
+    /* height: ; */
     margin-top: 20px;
-    animation: dayyanSlide 2s;
+    transform: rotate( 90deg);
+    /* animation: dayyanSlide 2s; */
 }
 
-@keyframes dayyanSlide {
+
+/* @keyframes dayyanSlide {
     from { transform: translateX(-100%); }
     to { transform: translateX(0); }
-}
+} */
 
 /* Scroll Arrow */
 .scroll-arrow {
@@ -69,6 +82,11 @@ body {
     100% { transform: translateY(0); }
 }
 
+.aboutContainer{
+    margin: 4vh;
+
+}
+
 /* About Section */
 .about {
     color: rgb(168, 167, 167);
@@ -77,46 +95,46 @@ body {
     margin: 40px 0;
     
 }
+/* About Section Links */
+#about1, #about2, #about3 {
+    align-content: center;
+    width: 30px; /* Increase size */
+    height: 30px;
+    border: 2px solid white; /* Bolder border */
+    border-radius: 10px; /* Softer corners */
+    padding: 10px; /* Add padding for better spacing */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+    gap: 10px;
+}
 
-    #about1{
-        height: 20px;
-        border: 1px solid;
-        padding: 0px;
-        border-radius: 5px;
-      
-    
-    }
-    #about2{
-        height: 20px;
-        border: 1px solid;
-        padding: 0px;
-        border-radius: 5px;
-    }
-    #about3{
-        height: 20px;
-        border: 1px solid;
-        padding: 0px;
-        border-radius: 5px;}
+/* Hover Effect */
+#about1:hover, #about2:hover, #about3:hover {
+    transform: scale(1.2); /* Slightly enlarge on hover */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Add glowing effect */
+}
+
+/* Center the links */
+.socialLinks {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Increase spacing between icons */
+    margin-top: 8vh;
+}
+
 #paraGraph {
     font-size: 1.2rem;
     color: rgb(194, 187, 187);
+    text-align: left; /* Align text to the left */
+    margin: 0; /* Remove margins */
+    padding: 0 10px; /* Add padding for spacing from edges */
+    gap: 50px;
+}
+
+
+.timelineheading{
+    padding-top: 4vh;
     text-align: center;
-    margin: 0 10%;
-}
-
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.social-links img {
-    width: 30px;
-    height: 30px;
-    border: 1px solid;
-    border-radius: 5px;
-}
+  }
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -132,10 +150,16 @@ body {
         font-size: 1rem;
     }
 
-    .social-links img {
+    .socialLinks img {
         width: 25px;
         height: 25px;
     }
+}
+.footerBottom{
+     display: flex;
+     text-align: center;
+     justify-content: center;
+     margin: 3vh;
 }
 
 

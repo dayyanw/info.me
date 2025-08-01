@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/video",
+      "destination": "https://www.veo3gen.app",
+      "permanent": true
+    }
+  ]
+}
